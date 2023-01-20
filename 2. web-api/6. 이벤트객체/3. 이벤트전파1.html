@@ -31,7 +31,10 @@
 
     <script>
 
-        const $fruits = document.getElementById('fruits');
+        // 중요!!
+        const $fruits = document.getElementById('fruits'); // ul을 가져옴
+
+        // 버블링
 
         $fruits.addEventListener('click', e => {
             console.log('ul태그 클릭이벤트 발생!');
@@ -43,7 +46,7 @@
 
         $grape.addEventListener('click', e => {
             console.log('grape에서 클릭이벤트 발생!');
-        });
+        }); // 부모와 자신의 것이 같이 이벤트 발생, 이벤트 중첩
 
     </script>
 

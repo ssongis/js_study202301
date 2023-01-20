@@ -13,10 +13,11 @@
 
     <script>
 
-        document.onclick = function(e) {
-            console.log(e);
+        // e안으로 브라우저가 정보를 줌, 이름 중요하지 x, document:문서 전체에 적용, e는 객체: {x,y}로 대체 가능(디스트럭쳐링)
+        document.onclick = function(e) { 
+            //console.log(e);
             const $msg = document.querySelector('.msg');
-            $msg.textContent = `x: ${e.x}, y: ${e.y}`;
+            $msg.textContent = `x: ${e.x}, y: ${e.y}`; // 브라우저에서 텍스트 확인 가능
         };
 
     </script>

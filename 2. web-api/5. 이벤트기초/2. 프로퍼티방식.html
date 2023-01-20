@@ -15,12 +15,14 @@
     <script>
         
         function sayHello() {
-            alert('안녕하세요!');
+            alert('안녕하세요!'); // 직접 부르는게 아니라 브라우저가 부르는 것
         }
 
-        const [$b1, $b2, $b3] = [...document.querySelectorAll('button')];
+        const [$b1, $b2, $b3] = [...document.querySelectorAll('button')]; // 태그이름이 button인 것들 잡아옴, 배열로 복사(...)
 
-        $b1.onclick = sayHello;
+        $b1.onclick = sayHello; // () 사용x
+        // 프로퍼티 방식
+        // 하나의 이벤트타입에 동시에 두 개 불가능 
         $b2.onclick = function() {
             $b2.style.width= '150px';
         };
@@ -33,7 +35,7 @@
         $b3.onmouseleave = sayHello;
 
         //이벤트핸들러 제거
-        $b3.onmouseenter = null;
+        $b3.onmouseenter = null; 
 
     </script>
 

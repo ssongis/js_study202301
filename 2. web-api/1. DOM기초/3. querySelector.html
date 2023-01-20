@@ -18,14 +18,15 @@
 
     <script>
 
+        // 이것만 알면 됨
         // const $grape = document.querySelector('.grape');
-        // const $grape = document.querySelector('#fruits > li:nth-child(3)');
-        const $grape = document.querySelector('.banana + li');
+        // const $grape = document.querySelector('#fruits > li:nth-child(3)'); // grape
+        const $grape = document.querySelector('.banana + li'); // grape
         console.log($grape);
 
         $grape.textContent = '맛있는 포도';
 
-        const $elems = document.querySelectorAll('.fr');
+        const $elems = document.querySelectorAll('.fr'); // 전부 가져와서 배열로
         console.log($elems);
 
         /*

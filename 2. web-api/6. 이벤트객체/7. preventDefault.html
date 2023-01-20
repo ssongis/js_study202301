@@ -18,15 +18,19 @@
     <script>
         const $link = document.querySelector('.link');
 
-        $link.onclick = e => {
-            if (!confirm('정말로 이동할까요?')) {
-                e.preventDefault(); //기본기능 중단
-            } 
-        };
+         $link.onclick = e => {
+
+        //   e.preventDefault(); // 기본기능 방지, 링크이동 기능 뺌
+
+             if (!confirm('정말로 이동할까요?')) {
+                 e.preventDefault(); //기본기능 중단 , confirm이 false면 중단, 취소버튼
+             } 
+         };
 
         const $subBtn = document.getElementById('check');
+        // 필수입력사항 , 입력값 인증
         $subBtn.onclick = e => {
-            e.preventDefault();
+            e.preventDefault(); // 입력값 인증할 때도 사용
 
             const $input = $subBtn.previousElementSibling;
             if ($input.value === '') {

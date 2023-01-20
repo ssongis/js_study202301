@@ -44,9 +44,9 @@
         const activate = e => {
 
             //이벤트 발생 타겟을 제한
-            if (!e.target.matches('#fruits > li')) {
+            if (!e.target.matches('#fruits > li')) { // 이벤트가 터진 태그가 ( )과 매치하지 않으면
                 return;
-            }
+            } // 아래 코드 진행 x
 
             //1. 클릭대상을 제외한 li태그에 있는 class="active" 제거
             for (let $li of [...$fruits.children]) {
@@ -65,13 +65,13 @@
             $em.textContent = e.target.textContent;
         };
 
-        //이벤트 핸들러 바인딩
+        // //이벤트 핸들러 바인딩
         // for (let $li of [...$fruits.children]) {
-        //     $li.onclick = activate;
+        //     $li.onclick = activate; // li 태그에 하나하나 이벤트 적용
         // }
 
         //ul에 이벤트부여 후 버블링 사용
-        $fruits.onclick = activate;
+          $fruits.onclick = activate;
 
     </script>
 

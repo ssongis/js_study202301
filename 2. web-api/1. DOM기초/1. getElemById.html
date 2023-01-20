@@ -22,15 +22,15 @@
 
     <script>
 
-        // 아이디속성으로 요소 노드 가져오기
+        // 아이디속성으로 요소(태그) 노드 가져오기
         // console.log(document.body);
 
         const $bnn = document.getElementById('banana');
         console.log($bnn.textContent);
 
-        $bnn.textContent = '브네이너';
+        $bnn.textContent = '브네이너'; // 태그 조작
 
-        console.log($bnn.style);
+        console.log($bnn.style); // 스타일 조작
         $bnn.style.color = 'yellow';
         $bnn.style.fontSize = '20px';
         $bnn.style.fontWeight = 'bold';

@@ -50,10 +50,10 @@ console.log(c.increase()); // 2
 const counter = (function() {
     let num = 0;
 
-    function def(callback) {
+    function def(callback) { 
         return callback(num);
     }
-    return def;
+    return def; // def는 사실상 counter
 })();
 
 

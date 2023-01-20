@@ -1,68 +1,61 @@
 
-/*
+// // 카운팅 변수
+// let num = 0; // 전역 변수
 
--- num이 전역변수라서 increase함수 이외에도 
-   num의 상태값을 변경시킬 가능성이 존재한다.
+// // 카운트 숫자 상태 변경 함수
+// const increase = () => ++num;
 
-// 카운팅
-let num = 0; // 카운트 상태 변수
+// console.log(increase()); // 1
 
-// 카운트 상태 변경 함수
-const increase = function() {
-    return ++num;
-};
+// num = 999;
 
-console.log(increase());
-console.log(increase());
-
-num = 999;
-
-console.log(increase()); // 3?? => 1000
-*/
+// console.log(increase()); // 2? => 1000
 
 
-//=======================================
-
-/*
-
--- num이 지역변수라서 함수 호출시 재초기화되는 문제
-
-const increase = function() {
-    let num = 0; // 상태변수를 지역변수 처리
-    return ++num;
-};
-
-console.log(increase());
-console.log(increase());
-console.log(increase()); // 3?
-*/
-
-
-//==================================
-
-// const increaseClosure = function() {
-
-//     let num = 0; // 상태 변수
-
-//     return function() {
-//         return ++num;
-//     };
+// const increase = () => {
+//     let num = 0; // 상태변수를 지역변수 처리
+//     return ++num;
 // };
 
-// const increase = increaseClosure();
+// console.log(increase()); // 1
+// console.log(increase()); // 1
+// console.log(increase()); // 1
 
-const increase = (() => {
-    let num = 0; // 상태 변수
+
+// closure
+const increaseClosure = () => {
+
+    let num = 0; // 상태변수(지역변수)
+
+    function increase() { // () 있으면 increase를 call함
+        return ++num;
+    }
+    return increase; // () 없으면 함수 전체를 리턴
+
+    // return () => {
+    //     return ++num;
+    // };
+};
+
+const result = increaseClosure(); // increase를 호출함 => 함수 전체를 리턴
+result();
+console.log(result());
+console.log(result());
+console.log(result());
+
+// 즉시 실행 함수
+// closure 함수
+(function(){
+    let num = 0;
+    return () => ++num;
+} ());
+
+const result2 = (()=>{
+    let num = 0;
     return () => ++num;
 })();
 
-console.log(increase());
-console.log(increase());
-console.log(increase());
-console.log(increase());
-
-// const another = function() {
-//     return ++num;
-// }
-
-// another();
+console.log(result2());
+console.log(result2());
+console.log(result2());
+console.log(result2());

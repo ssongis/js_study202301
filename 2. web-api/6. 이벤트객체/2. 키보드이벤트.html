@@ -17,10 +17,13 @@
         const $msg = document.querySelector('.msg');
 
         $input.addEventListener('keyup', function(e) {
-            if (e.key === 'Enter') {
+            
+            console.log(e);
+
+            // if (e.key === 'Enter') {
                 $msg.textContent = $input.value;
-                $input.value = '';
-            }
+                // $input.value = '';
+            // } // if문 없으면 실시간으로 입력값이 떨어짐
         });
 
     </script>
