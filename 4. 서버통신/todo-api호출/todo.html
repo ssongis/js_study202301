@@ -48,6 +48,7 @@
                 tags += `
                     <li data-id=${id}>
                         제목: ${title}, 완료여부: ${done}
+                        <button class='del-btn'>삭제</button>
                     </li>
                 `;
             });
@@ -87,7 +88,7 @@
             console.log('등록버튼 눌렀음~');
 
             const $titleInput = document.getElementById('title-input');
-            const payload = { //payload는 자바스크립트 객체 => json으로 바꿔줘야 함
+            const payload = {
                 title: $titleInput.value
             };
 
@@ -106,6 +107,27 @@
 
         };
 
+        // 삭제 처리 이벤트 핸들러 바인딩
+        document.querySelector('.todo-list').onclick = e => {
+
+            if (!e.target.matches('.todo-list .del-btn')) {
+                return;
+            }
+            // console.log(e.target.parentNode.dataset.id);
+            // console.log('삭제버튼 클릭함~');
+
+            const id = e.target.parentNode.dataset.id;
+
+            fetch(`${API_BASE_URI}/${id}`, {
+                method: 'DELETE'
+            })
+            .then(res => res.json())
+            .then(todoList => {
+                render(todoList);
+            });
+            
+
+        };
 
         // 함수 호출
         getTodoList(API_BASE_URI);
